@@ -201,6 +201,7 @@ Si no se encuentra, mostrar el siguiente mensaje:
 'El alumno con legajo 'xxx' no se encuentra en el listado'
 Siendo 'xxx' el valor del legajo enviado por POST.*/
 
+/*
 $legajo = isset($_POST["legajo"]) ? (int) $_POST["legajo"] : 0;
 
 
@@ -261,12 +262,57 @@ function borrar(int $legajo)
 }
 
 echo borrar($legajo);
+*/
 
 //---------------------------------------------------------------------------------------------------------------
 /*Tomando como punto de partida los ejercicios anteriores, se pide:
 Crear la clase Alumno (en un namespace nombrado con su apellido) con los atributos y métodos necesarios para realizar el CRUD sobre el archivo ./archivos/alumnos.txt
 
 Las peticiones realizarlas sobre la página nexo_poo.php*/
+
+require_once "./alumno.php";
+
+use racioppi\alumno;
+
+$nombre = isset($_POST["nombre"]) ? (string) $_POST["nombre"] : "";
+$legajo = isset($_POST["legajo"]) ? (int) $_POST["legajo"] : 0;
+$apellido = isset($_POST["apellido"]) ? (string) $_POST["apellido"] : "";
+$accion = isset($_POST["accion"]) ? (string) $_POST["accion"] : "";
+
+if($nombre !== "" && $legajo !== 0 && $apellido !== "" && ($accion == "agregar" || $accion == "modificar") == true)
+{
+    $estudiante = new alumno($apellido,$nombre,$legajo);
+}
+
+switch( strToLower($accion))
+{
+    case "agregar":
+        if(alumno :: agregar($estudiante))
+        {
+            echo"alumno agregado";
+        }
+        else
+        {
+            echo "fallo en agregar alumno";
+        }
+        break;
+    case "mostrar":
+        alumno :: mostrar();
+        break;
+    case "modificar":
+        echo alumno :: modficar($estudiante);
+        break;
+    case "borrar":
+        echo alumno :: borrar($legajo);
+        break;
+    case "encontrar":
+        echo alumno :: encontrar($legajo);
+        break;
+
+    default:
+        echo "La accion no existe o esta mal escrita";
+        break;
+}
 
 
 
