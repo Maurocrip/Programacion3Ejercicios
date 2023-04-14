@@ -27,7 +27,7 @@ class Garage
 {
     private String $_razonSocial;
     private float $_precioPorHora;
-    private $_autos; // como instanciarlo como array.
+    private array $_autos;
 
     function __construct(string $razonSocial, int $precioPorHora)
     {
