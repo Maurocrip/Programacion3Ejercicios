@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD - AJAX</title>
+
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="./funciones.js"></script>
+
+</head>
+<body>
+
+    <table class="table table-light">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2">ALTA - ALUMNOS - AJAX</th>
+            </tr>
+        <tbody>
+            <tr>
+                <td>LEGAJO</td>
+                <td><input type="number" name="" id="legajo"></td>
+            </tr>
+            <tr>
+                <td>APELLIDO</td>
+                <td><input type="text" name="" id="apellido"></td>
+            </tr>
+            <tr>
+                <td>NOMBRE</td>
+                <td><input type="text" name="" id="nombre"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit" onclick="Agregar()">Agregar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>LISTAR - ALUMNOS - AJAX</th>
+            </tr>
+        <tbody>
+            <tr>
+                <td><button type="submit" onclick="Listar()">Listar</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset >
+                        <legend >Listado de alumnos</legend>
+                        <div id="divListado">
+
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table class="table table-dark">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="2">VERIFICAR - ALUMNOS - AJAX</th>
+            </tr>
+        <tbody>
+            <tr>
+                <td>LEGAJO</td>
+                <td><input type="number" name="" id="legajo_v"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit" onclick="Verificar()">Verificar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="2">MODIFICACIÓN - ALUMNOS - AJAX</th>
+            </tr>
+        <tbody>
+            <tr>
+                <td>LEGAJO</td>
+                <td><input type="number" name="" id="legajo_m" ></td>
+            </tr>
+            <tr>
+                <td>APELLIDO</td>
+                <td><input type="text" name="" id="apellido_m"></td>
+            </tr>
+            <tr>
+                <td>NOMBRE</td>
+                <td><input type="text" name="" id="nombre_m"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit" onclick="Modificar()">Modificar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table class="table table-light">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2">BORRAR - ALUMNOS - AJAX</th>
+            </tr>
+        <tbody>
+            <tr>
+                <td>LEGAJO</td>
+                <td><input type="number" name="" id="legajo_b" ></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit" onclick="Borrar()">Borrar</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
