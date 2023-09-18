@@ -26,6 +26,7 @@ switch($accion)
     case "modificar":       
         $_FILES["foto"]["name"] = $legajo . ".png";
         $alumno = alumnoClase5 :: encontrarAlumnoId($id);
+        var_dump($alumno);
         unlink($alumno->foto);
         $foto = "./fotos/". $_FILES["foto"]["name"];
         if(move_uploaded_file($_FILES["foto"]["tmp_name"], $foto))
@@ -40,12 +41,13 @@ switch($accion)
     break;
     
     case "eliminar":
-        echo alumnoClase5 :: eliminarAlumno($id);
         $alumno = alumnoClase5 :: encontrarAlumnoId($id);
-        unlink($alumno->foto);
+        var_dump($alumno);
+        unlink("./fotos/".$alumno[0]->foto);
+        echo alumnoClase5 :: eliminarAlumno($id);
     break;
 
-    case "mostrarTodos":
+    case "mostrarTodos":  
         var_dump(alumnoClase5 :: traerTodosLosAlumnos());
     break;
 

@@ -29,7 +29,7 @@ class alumnoClase5
     public string $_foto;
     public int $_legajo;
     
-    function __construct(string $apellido, string $nombre, int $legajo, string $foto)
+    function __construct(string $apellido = "", string $nombre= "", int $legajo= 0, string $foto= "")
     {
         $this->_nombre = $nombre;
         $this->_apellido = $apellido;
@@ -230,10 +230,12 @@ class alumnoClase5
         
         $consulta->execute();                                           
 
-        return $consulta->fetchAll(PDO::FETCH_OBJ); 
+        //$consulta->fetchAll(PDO::FETCH_OBJ);
+        //$consulta->setFetchMode(PDO::FETCH_INTO, new alumnoClase5);
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
 
-    static function encontrarAlumnoLegajo(int $legajo) 
+    static function encontrarAlumnoLegajo(int $legajo)
     {
         $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
         
@@ -241,9 +243,8 @@ class alumnoClase5
         
         $consulta->execute();
         
-        $consulta->fetchAll(PDO::FETCH_OBJ);                                               
-
-        return $consulta->fetchAll(PDO::FETCH_ASSOC); 
+        $objeto = $consulta->fetchAll(PDO::FETCH_OBJ);
+        return $objeto; 
     }
 
     static function encontrarAlumnoId(int $id) 
@@ -254,9 +255,9 @@ class alumnoClase5
         
         $consulta->execute();
         
-        $consulta->fetchAll(PDO::FETCH_OBJ);                                              
+        $objeto = $consulta->fetchAll(PDO::FETCH_OBJ);                                           
 
-        return $consulta->fetchAll(PDO::FETCH_ASSOC); 
+        return  $objeto; 
     }
     
     public function insertarElAlumno()
